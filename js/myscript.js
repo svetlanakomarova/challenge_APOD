@@ -5,7 +5,7 @@
 var liked;
 
 $(document).ready(function () {
-  
+
    var apiURI = `https://api.nasa.gov/planetary/apod?api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
 
   // ajax call
@@ -26,10 +26,10 @@ $(document).ready(function () {
 
 liked = localStorage.getItem("liked");
 
-if (liked === "false" || liked == null) {
-  document.getElementById("chkLike").checked = false;
-} else {
+if (liked === "true") {
   document.getElementById("chkLike").checked = true;
+} else {
+  document.getElementById("chkLike").checked = false;
 }
 
 });  //end of doc ready;
