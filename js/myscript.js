@@ -1,3 +1,7 @@
+/* 
+ * @author Svetlana Komarova, 2022
+*/
+
 var liked;
 
 $(document).ready(function () {
