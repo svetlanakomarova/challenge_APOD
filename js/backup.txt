@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- JSONP -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JSONP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/mystyles.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+	<script src="js/myscript.js"></script>
+</head>
+
+<body>
+  
+	<div class="output">
+    <div class="heading">
+      <h3>Spacestagram</h3>
+      <p class="heading">Brought to you by NASA's Astronomy Photo of the Day (APOD) API</p>
+    </div>
+
+  <div class="box">
+    <div class="dream">
+      <img src="/images/three.jpg"/>
+      <img src="/images/two.jpg"/>
+      <img src="/images/three.jpg"/>
+      <img src="/images/one.png"/>
+      <img src="/images/one.png"/>
+    </div>
+
+    <div class="dream">
+      <img src="/images/one.png"/>
+      <img src="/images/three.jpg"/>
+      <img src="/images/three.jpg"/>
+      <img src="/images/one.png"/>
+      <img src="/images/two.jpg"/>
+    </div>
+
+    <div class="dream">
+      <img src="/images/one.png"/>
+      <img src="/images/two.jpg"/>
+      <img src="/images/one.png"/>
+      <img src="/images/one.png"/>
+      <img src="/images/two.jpg"/>
+    </div>
+
+  </div>
+<div class="btn">
+  <a href="#">More</a>
+</div>
+
+	</div>
+</body>
+</html>
+--------------------------------------------
+
+var images = new Array();
+
+$(document).ready(function () {
+  console.log("in doc ready");
+
+  /* $.getJSON("https://images-api.nasa.gov/asset/as11-40-5874"),
+  function(response){console.log(response);} */
+
+  //var apiURI = `https://images-api.nasa.gov/asset/as11-40-5874`;
+
+  // ajax call
+/*   $.ajax({
+    type: "GET", url: apiURI,
+    dataType: "json",
+    success: function (response) {
+      images = response.collection.items;
+      console.log(images);
+       $.each(response, function (index, value) {
+        console.log(value);
+        var imageSrc = response.collection.items;
+        console.log(imageSrc);
+      }) 
+      
+      for (let x of images){
+        $("#output").append(
+          `
+          <img src="${x.href}"/>
+          `
+        )
+      }
+
+    }
+  }); */
+
+   var apiURI = `https://api.nasa.gov/planetary/apod?api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
+
+  // ajax call
+  $.ajax({
+    type: "GET", url: apiURI,
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      $.each(response, function (index, value) {
+        console.log(value);
+      })
+      // $("#output").append(
+      //   `
+      //   <img src="${response.url}"/>
+      //   <h3>${response.copyright} - ${response.date}</h3>
+      //   <p>${response.explanation}</p>
+      //   `
+      // )
+    }
+    
+  }); 
+
+  var apiURI = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
+
+  // ajax call
+  $.ajax({
+    type: "GET", url: apiURI,
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      // $.each(response, function (index, value) {
+      //   console.log(value);
+      // })
+      for (let x=0; x < data.cities.length; x++) {
+        cityArray[x] = data.cities[x].cityName;
+        latArray[x] = data.cities[x].cityLat;
+        lngArray[x] = data.cities[x].cityLng;
+  
+        $("#cityList").append(
+          `
+            <li id='${x}'>
+              <a href='weather.html'>
+                ${data.cities[x].cityName}
+              </a>
+              <hr>
+            </li>
+          `      
+        );
+      }
+
+    }
+
+  });
+
+
+
+});  //end of doc ready;
