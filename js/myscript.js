@@ -5,8 +5,14 @@
 var liked;
 
 $(document).ready(function () {
+   
+  loadPhoto()
+  getLike();
 
-   var apiURI = `https://api.nasa.gov/planetary/apod?api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
+});  //end of doc ready;
+
+function loadPhoto() {
+  var apiURI = `https://api.nasa.gov/planetary/apod?api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
 
   // ajax call
   $.ajax({
@@ -23,10 +29,7 @@ $(document).ready(function () {
        )
     }    
   });
-
-  getLike();
-
-});  //end of doc ready;
+}
 
 function getLike() {
   liked = localStorage.getItem("liked");
