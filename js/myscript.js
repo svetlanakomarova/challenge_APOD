@@ -24,18 +24,21 @@ $(document).ready(function () {
     }    
   });
 
-liked = localStorage.getItem("liked");
-
-if (liked === "true") {
-  document.getElementById("chkLike").checked = true;
-} else {
-  document.getElementById("chkLike").checked = false;
-}
+  getLike();
 
 });  //end of doc ready;
 
-function onLike(){
+function getLike() {
+  liked = localStorage.getItem("liked");
 
+  if (liked === "true") {
+    document.getElementById("chkLike").checked = true;
+  } else {
+    document.getElementById("chkLike").checked = false;
+  }
+}
+
+function onLikeClicked(){
   if (document.getElementById("chkLike").checked === true) {
     liked = "false";
   } else {
