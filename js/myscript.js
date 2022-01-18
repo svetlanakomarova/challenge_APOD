@@ -12,7 +12,7 @@ $(document).ready(function () {
 });  //end of doc ready;
 
 function loadPhoto() {
-  var apiURI = `https://api.nasa.gov/planetary/apod?api_key=YOUR_KEY`; //replace YOUR_KEY with an actual key
+  var apiURI = `https://api.nasa.gov/planetary/apod?api_key=bROhwT0aI6knZWlGg1cwPcPERqOlg7jLJOmlYPYL`;
 
   // ajax call
   $.ajax({
